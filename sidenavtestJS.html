@@ -128,15 +128,14 @@
         margin-bottom: 50px;
       }
 
-
-
-      .testDiv {
+      .hidden-divs {
         width: 200px;
         height: 200px;
         background-color: yellow;
         border: 1px solid black;
         display: none;
       }
+
 
 
       .show {
@@ -174,29 +173,29 @@
 
     /*Show Hidden Divs/Secondary Menu Test */
     function showHidden(){
-      var divs = document.getElementsByClassName('top-divs'),
-      i = divs.length;
+      var projects = document.getElementsByClassName('hidden-divs');
 
-      while(i--){
-        if(divs[i].classList.contains('testDiv')) {
-          divs[i].classname -= ' hide';
-          divs[i].classname += ' show';  
+      for(var i =0; i < projects.length; i++) {
+        if(projects[i].classList.contains('testDiv')) {
+          projects[i].className += ' show';   
         };
       }
+      console.log('*** showHidden ****')
 
     }
 
 
     /* Hide All Divs */
     function hideDiv() { 
-      var elem = document.getElementById('alpha-zero')
-          elem.className += " stay",     
+      var elem = document.getElementById('alpha-zero'),
           divs = document.getElementsByClassName('top-divs'),
-          i = divs.length;
+          i    = divs.length;
+      
+      elem.className += " stay";  
 
       while(i--) {
         if(divs[i].classList.contains('stay') == false) {
-          divs[i].className += ' hide';
+          divs[i].className += ' hidden';
         };
       };
 
@@ -295,7 +294,7 @@
 
   <div class = "container">
     <div class = "row pull-up">
-      <div class="top-divs testDiv"></div>
+      <div class="testDiv hidden-divs"></div>
       <a href="#">
         <div id = "alpha-zero" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float test" onclick="hideDiv()">
           <h1 class = "zero-marg white-text center"> Alpha Zero </h1>
