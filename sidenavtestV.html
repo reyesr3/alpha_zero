@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/velocity/1.3.1/velocity.min.js"></script>
     <style>
       /* styles go here temporarily */
       /* div background images, not meant for production */
@@ -58,49 +59,6 @@
         background-repeat: no-repeat;
         background-position: center;
       }
-
-      #team {
-        background-image: url('http://weknowyourdreams.com/images/wolf/wolf-07.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      #center1 {
-        background-image: url('https://lh3.googleusercontent.com/-7YNzcxYqRBM/VKa0BBi85UI/AAAAAAAACUw/9Qwy6cCZIuQ/w1200-h675/call_of_duty_advanced_warfare_background_picture.png');
-        background-size:cover;
-        background-repeat:no-repeat;
-        background-position: center;
-      }
-
-      #progress {
-        background-image: url('http://housely.com/wp-content/uploads/2016/08/California.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      #media {
-        background-image: url('http://www.clker.com/cliparts/4/x/r/z/2/w/evolution-hi.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      #presentation {
-        background-image: url('http://visualmeditation.co/wp-content/uploads/2014/08/real-life-inception-technique-induces-lucid-dreams.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      #summary {
-        background-image: url('http://www.clipartbest.com/cliparts/RTd/g4R/RTdg4R6Ec.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
 
       .top-bar {
         height: 60px;
@@ -171,18 +129,6 @@
         margin-bottom: 50px;
       }
 
-      .hidden-divs {
-        display: none;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .show {
-        display: block;
-      }
-
       ul > li {
         margin: 0 0 0 0;
         padding: 0 0 0 0;
@@ -210,36 +156,6 @@
     <script type = "text/javascript">
      /* javascript goes here temporarily */
      var coolClass = "green-text" + " text-lighten-4"
-
-
-    /* Show Hidden Divs/Secondary Menu Test */
-    function showHidden(){
-      var projects = document.getElementsByClassName('top-divs');
-
-      for(var i =0; i < projects.length; i++) {
-        if(projects[i].classList.contains('hidden-divs')) {
-          projects[i].className += ' show';   
-        };
-      }
-    };
-    
-    /* Hide All Divs */
-    function hideDiv() { 
-      var elem = document.getElementById('alpha-zero'),
-          divs = document.getElementsByClassName('top-divs'),
-          i    = divs.length;
-      
-      elem.className += " stay";  
-
-      while(i--) {
-        if(divs[i].classList.contains('stay') == false) {
-          divs[i].className += ' hidden';
-        };
-      };
-
-      showHidden();
-    };
-
         $(document).ready(function(){
           (function floaty(){
           $('.float').animate({bottom: '+=3px'},900, function(){
@@ -253,21 +169,21 @@
         });
       })();
 
-   /* jQuery: hides other projects when clicked; expands and centers div */
-       //  (function divHide(){
-       //  $('.top-divs').on('click', function(e) {
-       //    e.preventDefault();
-       //    $('.top-divs').not(this).hide(500);
-       //    $(this).animate({left: '200px'}, {
-       //      duration: 2000, 
-       //      complete: function(){
-       //        $(this)
-       //          .animate({height: "60%"}, {queue: false, duration: 3000})
-       //          .animate({width: "60%"}, {queue: false, duration: 3000});
-       //      }
-       //    });
-       //  });
-       // })();
+   /* hides other projects when clicked; expands and centers div */
+        (function divHide(){
+        $('.top-divs').on('click', function() {
+          $('.top-divs').not(this).hide(500);
+          $(this).velocity({left: '200px'}, {
+            duration: 2000, 
+            complete: function(){
+              $(this)
+                .velocity({height: "70%"}, {queue: false, duration: 3000})
+                .velocity({width: "60%"}, {queue: false, duration: 3000});
+            }
+          });
+        });
+       })();
+
 
       $(".button-collapse").sideNav({
         menuWidth: 400,
@@ -287,7 +203,7 @@
     .addClass('white-text', 5000);
   });
 
-        }); 
+        });
     </script>
   </head>
   <body class = "grey darken-4">
@@ -333,63 +249,36 @@
   <div class = "container">
     <div class = "row pull-up">
       <a href="#">
-        <div id = "alpha-zero" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float" onclick="hideDiv()">
+        <div id = "alpha-zero" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float test">
           <h1 class = "zero-marg white-text center"> Alpha Zero </h1>
         </div>
       </a>
       <a href="#">
-        <div id = "beta-one" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b">
+        <div id = "beta-one" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b test">
           <h1 class = "zero-marg white-text center"> Beta One </h1>
           <img id = "beta-skull" src = "http://images.clipshrine.com/getimg/PngMedium-Skull-and-Crossbones-50630.png">
         </div>
       </a>
       <a href="#">
-        <div id = "cali-two" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float">
+        <div id = "cali-two" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float test">
           <h1 class = "zero-marg white-text center"> Cali Two </h1>
         </div>
       </a>
       <a href="#">
-        <div id = "darwin-three" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b">
+        <div id = "darwin-three" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b test">
           <h1 class = "zero-marg white-text center"> Darwin Three </h1>
         </div>
       </a>
       <a href="#">
-        <div id = "enigma-four" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float">
+        <div id = "enigma-four" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float test">
           <h1 class = "zero-marg white-text"> Enigma Four </h1>
         </div>
       </a>
       <a href="#">
-        <div id = "failsafe-five" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float-b">
+        <div id = "failsafe-five" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float-b test">
           <h1 class = "zero-marg white-text"> Fail-Safe Five </h1>
         </div>
       </a>
-
-      <a href="#">
-        <div id = "center1" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b hidden-divs">
-          <h1 class = "zero-marg white-text center"> Center1 </h1>
-          <img id = "beta-skull" src = "http://images.clipshrine.com/getimg/PngMedium-Skull-and-Crossbones-50630.png">
-        </div>
-      </a>
-      <a href="#">
-        <div id = "progress" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float hidden-divs">
-          <h1 class = "zero-marg white-text center"> Progress </h1>
-        </div>
-      </a>
-      <a href="#">
-        <div id = "media" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float-b hidden-divs">
-          <h1 class = "zero-marg white-text center"> Media </h1>
-        </div>
-      </a>
-      <a href="#">
-        <div id = "presentation" class = "col s12 m6 l3 blue darken-4 push-right z-depth-3 top-divs float hidden-divs">
-          <h1 class = "zero-marg white-text"> Presentation </h1>
-        </div>
-      </a>
-      <a href="#">
-        <div id = "summary" class = "col s12 m6 l3 blue darken-4 push-right-last z-depth-3 top-divs float-b hidden-divs">
-          <h1 class = "zero-marg white-text"> Summary </h1>
-        </div>
-      </a>      
     </div>
   </div>
 
