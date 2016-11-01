@@ -128,6 +128,31 @@
         margin-bottom: 50px;
       }
 
+
+      .hidden-divs {
+        display: none;
+      }
+
+
+      .shrink {
+        transform: scale(.1);
+        opacity:.2;
+        transition-duration: 2s;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .grow {
+        transform: scale(1.5);
+        transition-duration: 2s;
+      }
+
       ul > li {
         margin: 0 0 0 0;
         padding: 0 0 0 0;
@@ -169,17 +194,18 @@
       })();
 
    /* hides other projects when clicked; expands and centers div */
-        (function divHide(){
-        $('.top-divs').on('click', function() {
-          $('.top-divs').not(this).hide(500);
-          $(this).animate({left: '200px'}, {
-            duration: 2000, 
-            complete: function(){
-              $(this)
-                .animate({height: "70%"}, {queue: false, duration: 3000})
-                .animate({width: "60%"}, {queue: false, duration: 3000});
-            }
-          });
+        (function animateDiv(){
+        $('.top-divs').on('click', function(e) {
+          e.preventDefault();
+          $(this).addClass('stay');
+          $('.top-divs').not(this).addClass('shrink');
+        
+          setTimeout(function() {
+             $('.shrink').addClass('hidden');
+            }, 1500);
+          setTimeout(function() {
+             $('.stay').addClass('grow');
+            }, 1600);
         });
        })();
 

@@ -158,14 +158,14 @@
      var coolClass = "green-text" + " text-lighten-4"
         $(document).ready(function(){
           (function floaty(){
-          $('.float').animate({bottom: '+=3px'},900, function(){
-            $('.float').animate({bottom: '-=3px'},900, floaty())
+          $('.float').velocity({bottom: '+=3px'},900, function(){
+            $('.float').velocity({bottom: '-=3px'},900, floaty())
           });
         })();
     /* second floating function moving at a different speed. */
         (function floatyB(){
-        $('.float-b').animate({bottom: '+=3px'},1000, function(){
-          $('.float-b').animate({bottom: '-=3px'},1000, floatyB())
+        $('.float-b').velocity({bottom: '+=3px'},1000, function(){
+          $('.float-b').velocity({bottom: '-=3px'},1000, floatyB())
         });
       })();
 
